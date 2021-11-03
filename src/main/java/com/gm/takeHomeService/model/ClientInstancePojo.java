@@ -1,4 +1,4 @@
-package com.gm.takeHomeService.jaxrs;
+package com.gm.takeHomeService.model;
 
 import lombok.Getter;
 import lombok.Setter;
