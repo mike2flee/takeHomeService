@@ -65,12 +65,13 @@ public class ClientInstanceRepo {
     }
 
     public void addClientInstance(CreateRequest createRequest) {
-        ArrayList<ClientInstancePojo> clientInstancePojoList = new ArrayList<>();
-        ClientInstancePojo requestClientInstance = createRequest.getClientInstance();
-        requestClientInstance.setId(Integer.toString(clientInstanceMap.size() ));
-
-      clientInstanceMap.add(requestClientInstance);
-
+       try{
+           ClientInstancePojo requestClientInstance = createRequest.getClientInstance();
+           requestClientInstance.setId(Integer.toString(clientInstanceMap.size() ));
+           clientInstanceMap.add(requestClientInstance);
+       }catch (Exception e) {
+           System.out.println(e);
+       }
     }
 
 }
