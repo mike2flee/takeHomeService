@@ -40,4 +40,13 @@ public class ClientInstanceRepo {
             System.out.println(e);
         }
     }
+
+    public ArrayList<ClientInstancePojo> getAllClientInstances() {
+        ArrayList<ClientInstancePojo> clientInstancePojoList = new ArrayList<>();
+
+        for (ClientInstancePojo entry : clientInstanceMap) {
+            clientInstancePojoList.add(entry);
+        }
+        return clientInstancePojoList;
+    }
 }
