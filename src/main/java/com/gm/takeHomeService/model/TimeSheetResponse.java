@@ -9,7 +9,7 @@ import java.util.ArrayList;
 @Getter
 @Setter
 public class TimeSheetResponse {
-    private String statusCode;
+    private Integer statusCode;
     private String statusMessage;
     private ArrayList<ClientInstancePojo> clientInstancePojoList;
 
