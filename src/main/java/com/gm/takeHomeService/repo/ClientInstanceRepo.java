@@ -1,6 +1,8 @@
 package com.gm.takeHomeService.repo;
 
 import com.gm.takeHomeService.model.ClientInstancePojo;
+import com.gm.takeHomeService.model.CreateRequest;
+import com.gm.takeHomeService.model.FindByClientRequest;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -40,4 +42,36 @@ public class ClientInstanceRepo {
             System.out.println(e);
         }
     }
+
+    public ArrayList<ClientInstancePojo> getAllClientInstances() {
+        ArrayList<ClientInstancePojo> clientInstancePojoList = new ArrayList<>();
+
+        for (ClientInstancePojo entry : clientInstanceMap) {
+            clientInstancePojoList.add(entry);
+        }
+        return clientInstancePojoList;
+    }
+    public ArrayList<ClientInstancePojo> findByClientName(FindByClientRequest findByClientRequest) {
+        ArrayList<ClientInstancePojo> clientInstancePojoList = new ArrayList<>();
+
+        for (ClientInstancePojo entry : clientInstanceMap) {
+            String requestedClientName = findByClientRequest.getClientName().toLowerCase();
+            String clientName =  entry.getClient().toLowerCase();
+            if(requestedClientName.equals(clientName)){
+                clientInstancePojoList.add(entry);
+            }
+        }
+        return clientInstancePojoList;
+    }
+
+    public void addClientInstance(CreateRequest createRequest) {
+       try{
+           ClientInstancePojo requestClientInstance = createRequest.getClientInstance();
+           requestClientInstance.setId(Integer.toString(clientInstanceMap.size() ));
+           clientInstanceMap.add(requestClientInstance);
+       }catch (Exception e) {
+           System.out.println(e);
+       }
+    }
+
 }
