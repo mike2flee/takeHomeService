@@ -3,16 +3,18 @@ package com.gm.takeHomeService.dao.impl;
 import com.gm.takeHomeService.dao.ClientInstance;
 import com.gm.takeHomeService.model.ClientInstancePojo;
 
-import java.util.List;
+
+import java.util.ArrayList;
+
 
 public class ClientInstanceImpl implements ClientInstance {
     @Override
-    public List<ClientInstancePojo> getAllClientInstances() {
+    public ArrayList<ClientInstancePojo> getAllClientInstances() {
         return null;
     }
 
     @Override
-    public List<ClientInstancePojo> findClientInstancesByClientId(String clientName) {
+    public ArrayList<ClientInstancePojo> findClientInstancesByClientId(String clientName) {
         return null;
     }
 
