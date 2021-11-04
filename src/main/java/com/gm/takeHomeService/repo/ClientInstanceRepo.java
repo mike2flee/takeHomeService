@@ -1,6 +1,7 @@
 package com.gm.takeHomeService.repo;
 
 import com.gm.takeHomeService.model.ClientInstancePojo;
+import com.gm.takeHomeService.model.CreateRequest;
 import com.gm.takeHomeService.model.FindByClientRequest;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.Data;
@@ -61,6 +62,15 @@ public class ClientInstanceRepo {
             }
         }
         return clientInstancePojoList;
+    }
+
+    public void addClientInstance(CreateRequest createRequest) {
+        ArrayList<ClientInstancePojo> clientInstancePojoList = new ArrayList<>();
+        ClientInstancePojo requestClientInstance = createRequest.getClientInstance();
+        requestClientInstance.setId(Integer.toString(clientInstanceMap.size() ));
+
+      clientInstanceMap.add(requestClientInstance);
+
     }
 
 }

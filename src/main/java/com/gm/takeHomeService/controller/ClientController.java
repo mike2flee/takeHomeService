@@ -1,6 +1,7 @@
 package com.gm.takeHomeService.controller;
 
 import com.gm.takeHomeService.model.ClientInstancePojo;
+import com.gm.takeHomeService.model.CreateRequest;
 import com.gm.takeHomeService.model.FindByClientRequest;
 import com.gm.takeHomeService.model.TimeSheetResponse;
 import com.gm.takeHomeService.repo.ClientInstanceRepo;
@@ -52,6 +53,20 @@ public class ClientController {
                 response.setStatusCode("404");
                 response.setStatusMessage("No Data Found");
             }
+        } catch (Exception e) {
+            response.setStatusCode("500");
+            response.setStatusMessage(e.getMessage());
+        }
+        return response;
+    }
+
+    @PostMapping("/create")
+    public TimeSheetResponse createNewInstance(@RequestBody CreateRequest createRequest) {
+        TimeSheetResponse response = new TimeSheetResponse();
+        try {
+        clientInstanceRepo.addClientInstance(createRequest);
+            response.setStatusCode("200");
+            response.setStatusMessage("Success");
         } catch (Exception e) {
             response.setStatusCode("500");
             response.setStatusMessage(e.getMessage());
