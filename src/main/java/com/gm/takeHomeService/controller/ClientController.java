@@ -18,6 +18,7 @@ public class ClientController {
     @Autowired
     ClientInstanceRepo clientInstanceRepo;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/getAll")
     public TimeSheetResponse getAll() {
         TimeSheetResponse response = new TimeSheetResponse();
@@ -25,20 +26,21 @@ public class ClientController {
             ArrayList<ClientInstancePojo> entityList = new ArrayList<>();
             entityList = clientInstanceRepo.getAllClientInstances();
             if (!entityList.isEmpty()) {
-                response.setStatusCode("200");
+                response.setStatusCode(200);
                 response.setStatusMessage("Success");
                 response.setClientInstancePojoList(entityList);
             } else {
-                response.setStatusCode("404");
+                response.setStatusCode(404);
                 response.setStatusMessage("No Data Found");
             }
         } catch (Exception e) {
-            response.setStatusCode("500");
+            response.setStatusCode(500);
             response.setStatusMessage(e.getMessage());
         }
         return response;
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/findByClient")
     public TimeSheetResponse findByClient(@RequestBody  FindByClientRequest findByClientRequest) {
         TimeSheetResponse response = new TimeSheetResponse();
@@ -46,29 +48,30 @@ public class ClientController {
             ArrayList<ClientInstancePojo> entityList = new ArrayList<>();
             entityList = clientInstanceRepo.findByClientName(findByClientRequest);
             if (!entityList.isEmpty()) {
-                response.setStatusCode("200");
+                response.setStatusCode(200);
                 response.setStatusMessage("Success");
                 response.setClientInstancePojoList(entityList);
             } else {
-                response.setStatusCode("404");
+                response.setStatusCode(404);
                 response.setStatusMessage("No Data Found");
             }
         } catch (Exception e) {
-            response.setStatusCode("500");
+            response.setStatusCode(500);
             response.setStatusMessage(e.getMessage());
         }
         return response;
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/create")
     public TimeSheetResponse createNewInstance(@RequestBody CreateRequest createRequest) {
         TimeSheetResponse response = new TimeSheetResponse();
         try {
         clientInstanceRepo.addClientInstance(createRequest);
-            response.setStatusCode("200");
+            response.setStatusCode(200);
             response.setStatusMessage("Success");
         } catch (Exception e) {
-            response.setStatusCode("500");
+            response.setStatusCode(500);
             response.setStatusMessage(e.getMessage());
         }
         return response;
