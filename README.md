@@ -3,7 +3,7 @@
 
 **Version 0.0.1**
 
-The purpose of this project is to act as the API for [gmTakeHomeClient](https://github.com/mike2flee/gmTakeHomeClient/)
+The purpose of this project is to act as the air for [gmTakeHomeClient](https://github.com/mike2flee/gmTakeHomeClient/)
 
 ## Key Features
 - Extract and maintain data in-memory from a CSV data set
@@ -18,25 +18,25 @@ Install Java and Maven
 
 ## Installation
 
-## Install and Start through IDE
+### Install and Start through IDE
 1. clone project from github
 
 ```bash
 git clone https://github.com/mike2flee/takeHomeService
 ```
 2. Import the project into respective IDE as a Maven project
-3. Pull in dedepecies 
+3. Pull in dependencies 
 4. Start project
 
-## Install and Start through terminal
+### Install and Start through terminal
 1. clone project from github
 
 ```bash
 git clone https://github.com/mike2flee/takeHomeService
 ```
 
-2. go to the porject root directory
-3. package the application
+2. go to the project root directory
+3. package the application 
 
 ```bash
 ./mvnw package
