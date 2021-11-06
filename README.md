@@ -11,12 +11,41 @@ The purpose of this project is to act as the API for [gmTakeHomeClient](https://
 - An endpoint for fetching data based on a provided 'client name' criteria
 - An endpoint to create new data in-memory
 
+## Prerequisite
+Install Java and Maven
+- [Java](https://www.oracle.com/java/technologies/downloads/)
+- [Maven](https://maven.apache.org/install.html)
+
 ## Installation
 
+## Install and Start through IDE
+1. clone project from github
 
+```bash
+git clone https://github.com/mike2flee/takeHomeService
+```
+2. Import the project into respective IDE as a Maven project
+3. Pull in dedepecies 
+4. Start project
 
+## Install and Start through terminal
+1. clone project from github
 
+```bash
+git clone https://github.com/mike2flee/takeHomeService
+```
 
+2. go to the porject root directory
+3. package the application
+
+```bash
+./mvnw package
+```
+4. Start the application 
+
+```bash
+java -jar target/*.jar
+```
 
 
 ## Contributors
