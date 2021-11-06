@@ -36,7 +36,12 @@ git clone https://github.com/mike2flee/takeHomeService
 ```
 
 2. go to the project root directory
-3. package the application 
+
+```bash
+cd takeHomeService
+```
+
+4. package the application 
 
 ```bash
 ./mvnw package
