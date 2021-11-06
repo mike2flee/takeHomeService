@@ -51,28 +51,28 @@ public class ClientInstanceRepo {
         }
         return clientInstancePojoList;
     }
-    public ArrayList<ClientInstancePojo> findByClientName(FindByClientRequest findByClientRequest) {
+
+    public ArrayList<ClientInstancePojo> findByClientName(String clientName) {
         ArrayList<ClientInstancePojo> clientInstancePojoList = new ArrayList<>();
 
         for (ClientInstancePojo entry : clientInstanceMap) {
-            String requestedClientName = findByClientRequest.getClientName().toLowerCase();
-            String clientName =  entry.getClient().toLowerCase();
-            if(clientName.contains(requestedClientName)){
+            String requestedClientName = clientName.toLowerCase();
+            String currentClientName = entry.getClient().toLowerCase();
+            if (currentClientName.contains(requestedClientName)) {
                 clientInstancePojoList.add(entry);
             }
-
         }
         return clientInstancePojoList;
     }
 
     public void addClientInstance(CreateRequest createRequest) {
-       try{
-           ClientInstancePojo requestClientInstance = createRequest.getClientInstance();
-           requestClientInstance.setId(Integer.toString(clientInstanceMap.size() ));
-           clientInstanceMap.add(requestClientInstance);
-       }catch (Exception e) {
-           System.out.println(e);
-       }
+        try {
+            ClientInstancePojo requestClientInstance = createRequest.getClientInstance();
+            requestClientInstance.setId(Integer.toString(clientInstanceMap.size()));
+            clientInstanceMap.add(requestClientInstance);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }

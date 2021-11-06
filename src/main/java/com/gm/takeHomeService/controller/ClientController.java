@@ -41,12 +41,12 @@ public class ClientController {
     }
 
     @CrossOrigin(origins = "*")
-    @PostMapping("/findByClient")
-    public TimeSheetResponse findByClient(@RequestBody  FindByClientRequest findByClientRequest) {
+    @GetMapping("/findByClient")
+    public TimeSheetResponse findByClient(@RequestParam("clientName") String clientName) {
         TimeSheetResponse response = new TimeSheetResponse();
         try {
             ArrayList<ClientInstancePojo> entityList = new ArrayList<>();
-            entityList = clientInstanceRepo.findByClientName(findByClientRequest);
+            entityList = clientInstanceRepo.findByClientName(clientName);
             if (!entityList.isEmpty()) {
                 response.setStatusCode(200);
                 response.setStatusMessage("Success");
@@ -67,7 +67,7 @@ public class ClientController {
     public TimeSheetResponse createNewInstance(@RequestBody CreateRequest createRequest) {
         TimeSheetResponse response = new TimeSheetResponse();
         try {
-        clientInstanceRepo.addClientInstance(createRequest);
+            clientInstanceRepo.addClientInstance(createRequest);
             response.setStatusCode(200);
             response.setStatusMessage("Success");
         } catch (Exception e) {
