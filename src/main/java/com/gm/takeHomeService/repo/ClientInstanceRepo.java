@@ -57,9 +57,10 @@ public class ClientInstanceRepo {
         for (ClientInstancePojo entry : clientInstanceMap) {
             String requestedClientName = findByClientRequest.getClientName().toLowerCase();
             String clientName =  entry.getClient().toLowerCase();
-            if(requestedClientName.equals(clientName)){
+            if(clientName.contains(requestedClientName)){
                 clientInstancePojoList.add(entry);
             }
+
         }
         return clientInstancePojoList;
     }
