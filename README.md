@@ -3,7 +3,7 @@
 
 **Version 0.0.1**
 
-The purpose of this project is to act as the air for [gmTakeHomeClient](https://github.com/mike2flee/gmTakeHomeClient/)
+The purpose of this project is to act as the api for [gmTakeHomeClient](https://github.com/mike2flee/gmTakeHomeClient/)
 
 ## Key Features
 - Extract and maintain data in-memory from a CSV data set
@@ -46,7 +46,7 @@ cd takeHomeService
 ```bash
 ./mvnw package
 ```
-4. Start the application 
+4. start the application 
 
 ```bash
 java -jar target/*.jar
